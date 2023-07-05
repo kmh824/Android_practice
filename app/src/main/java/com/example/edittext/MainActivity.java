@@ -7,24 +7,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.edittext.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText et_id;
-    Button btn_test;
+    private ActivityMainBinding binding;
+    //EditText et_id;
+    //Button btn_test;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        et_id = findViewById(R.id.et_id);
-        btn_test = findViewById(R.id.btn_test);
+        //et_id = findViewById(R.id.et_id);
+        //btn_test = findViewById(R.id.btn_test);
 
-        btn_test.setOnClickListener(new View.OnClickListener() {
+
+        binding.btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                et_id.setText("강민혁");
+                binding.etId.setText("강민혁");
             }
         });
     }
